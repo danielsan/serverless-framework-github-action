@@ -1,0 +1,21 @@
+name: 'Serverless Framework'
+description: 'Wraps the Serverless Framework to enable common Serverless commands.'
+author: 'danielsan'
+branding:
+  icon: 'zap'
+  color: 'red'
+inputs:
+  args:
+    description: 'Arguments to pass to the serverless command'
+    required: false
+    default: '--help'
+  entrypoint:
+    description: 'Entrypoint for the action'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.args }}
+  entrypoint: ${{ inputs.entrypoint }}
