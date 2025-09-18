@@ -36,7 +36,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - name: serverless deploy
-      uses: serverless/github-action@v3.2
+      uses: danielsan/serverless-framework-github-action@main
       with:
         args: deploy
       env:
@@ -50,7 +50,7 @@ jobs:
 Change your action in this way, according to [this issue](https://github.com/serverless/github-action/issues/28), thanks to @matthewpoer:
 ```yaml
     - name: Install Plugin and Deploy
-      uses: serverless/github-action@v3.2
+      uses: danielsan/serverless-framework-github-action@main
       with:
         args: -c "serverless plugin install --name <plugin-name> && serverless deploy"
         entrypoint: /bin/sh
@@ -60,7 +60,7 @@ Change your action in this way, according to [this issue](https://github.com/ser
 Change your action in this way, according to [this issue](https://github.com/serverless/github-action/issues/53#issuecomment-1059839383), thanks to @nikhuber:
 ```yaml
     - name: Enter dir and deploy
-      uses: serverless/github-action@v3.2
+      uses: danielsan/serverless-framework-github-action@main
       with:
         args: -c "cd ./<your-dir> && serverless deploy"
         entrypoint: /bin/sh
@@ -68,12 +68,17 @@ Change your action in this way, according to [this issue](https://github.com/ser
 
 
 ## Use serverless v1 or v2
-Change the action with one of the following:
+For older versions of serverless, you can reference the original repository:
 ```yaml
 uses: serverless/github-action@v1
 ```
 ```yaml
 uses: serverless/github-action@v2
+```
+
+Or use this fork with the main branch:
+```yaml
+uses: danielsan/serverless-framework-github-action@main
 ```
 
 
